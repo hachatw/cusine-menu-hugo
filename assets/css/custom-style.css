@@ -5,3 +5,17 @@ body {
   font-family: 'Otomanopee One', sans-serif !important;
 }
 */
+
+.menu-column {
+	width: 100%;
+	padding-right: 4px;
+	padding-left: 15px;
+}
+
+@media (min-width: 350px) {
+	.menu-column {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%
+	}
+}
