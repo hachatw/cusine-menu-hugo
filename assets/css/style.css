@@ -1356,7 +1356,7 @@ ul.social-icons li {
 
 
 #site-header {
-	background: #fff;
+	background: #a96e49;
 	position: relative;
 }
 
@@ -1837,7 +1837,7 @@ body.touch-enabled .primary-menu ul li.menu-item-has-children>a {
 }
 
 .menu-modal-inner {
-	background: #fff;
+	background: #f5efe0;
 	display: flex;
 	justify-content: stretch;
 	overflow: auto;
@@ -4367,7 +4367,7 @@ div.comment:first-of-type {
 
 .footer-nav-widgets-wrapper,
 #site-footer {
-	background-color: #fff;
+	background-color: #a96e49;
 	border-color: #dedfdf;
 	border-style: solid;
 	border-width: 0;
