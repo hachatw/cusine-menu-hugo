@@ -12,10 +12,47 @@ body {
 	padding-left: 15px;
 }
 
-@media (min-width: 350px) {
+@media (-width: 550px) {
+	.menu-column {
+		-ms-flex: 0 0 33%;
+		flex: 0 0 33%;
+		max-width: 33%
+	}
+}
+
+@media (min-width: 450px) {
 	.menu-column {
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
 		max-width: 50%
 	}
 }
+  
+.menu-item {
+	display: flex;
+	align-items: center;
+  }
+  
+.menu-seperator::before,
+.menu-seperator::after {
+	content: "";
+	flex-grow: 1;
+	border-bottom: 12px dotted #000;
+	margin: 0 5px;
+  }
+
+  
+  .separator {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+  }
+  
+  .separator::before,
+  .separator::after {
+	content: "";
+	flex-grow: 1;
+	border-bottom: 1px dashed #000;
+	margin: 0;
+  }
+  
