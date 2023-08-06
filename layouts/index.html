@@ -31,22 +31,24 @@
         </div>
       </div>
       {{ end }}
-      
+
       <div class="wp-block-columns columns alignwide">
         {{ range .Site.Taxonomies.categories.台菜}}
         <div class="menu-column">
-          <div class="wp-block-group">
-            <div class="wp-block-group__inner-container">
-              <a href="{{.Permalink}}">
+              <a href="{{ .Permalink}}">
                 <div class="menu-item">
-                  <h4 class="name">{{ .Title }}</h4>
+                  <h6 class="name">{{ .Title }}&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                   <span class="separator"></span>
-                  <span class="price">NT 120</span>
+                  {{ range .Params.Price }}
+                  <strong>
+                  <div rel="price tag">&nbsp;&nbsp;&nbsp;&nbsp;{{ . }} </div>
+                  </strong>
+                  {{ end }}
                 </div>
-                <p>{{.Description}}</p>
+                <div class="menu-item">
+                <p class="menu-item-desciption">{{.Description}}</p>
+                </div>
               </a>
-            </div>
-          </div>
         </div>
         {{ end }}
       </div>

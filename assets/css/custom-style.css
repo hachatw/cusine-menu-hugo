@@ -6,12 +6,17 @@ body {
 }
 */
 
+.menu-item-desciption{
+	color:#446336; font-size:85%;
+}
+
 .menu-column {
 	width: 100%;
 	padding-right: 4px;
 	padding-left: 15px;
 	padding-top: 15px;
 	margin: -5px;
+
 }
 
 @media (min-width: 899px) {
@@ -27,11 +32,13 @@ body {
 	}
 }
 
-@media (min-width: 399px) and (max-width: 899px)  {
+@media (min-width: 450px) and (max-width: 899px)  {
 	.menu-column {
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
-		max-width: 50%
+		max-width: 50%;
+		padding-right: 30px;
+		padding-left: 15px;
 	}
 }
   
@@ -59,7 +66,7 @@ body {
   .separator::after {
 	content: "";
 	flex-grow: 1;
-	border-bottom: 1px dashed #000;
+	border-bottom: 	1px dashed #000;
 	margin: 0;
   }
   
