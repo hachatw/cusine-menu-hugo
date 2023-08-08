@@ -1,19 +1,22 @@
 {{ define "main" }}
-
-<header class="archive-header has-text-align-center header-footer-group">
-	<div class="archive-header-inner section-inner medium">
-		<h1 class="archive-title"><span class="color-accent">
-				{{ range first 2 (split .RelPermalink "/") }}
-				{{ if gt (len . ) 0 }}
-				{{  humanize (replace . "categories" "category") }}
-				{{ end }}
-				{{ end }}
-				:</span> <span class="vcard">{{ .Title }}</span></h1>
+<article class="post-20 page type-page status-publish has-post-thumbnail hentry" id="post-20">
+	<header class="entry-header has-text-align-center header-footer-group">
+	  <div class="entry-header-inner section-inner medium">
+	  </div>
+	</header>
+	<div class="post-inner thin">
+	  <div class="entry-content">
+		<header class="archive-header has-text-align-center header-footer-group">
+			<div class="archive-header-inner section-inner medium">
+				<h1 class="archive-title"><a href="{{.Permalink}}"><span>{{ .Title }}</span></a></h1>
+			</div>
+		</header>
+	<div class="wp-block-columns columns alignwide">
+		{{ range .Data.Pages }}
+			{{ .Render "item" }}
+		{{ end }}
+			</div>
+	  </div>
 	</div>
-</header>
-
-{{ range .Data.Pages }}
-{{ .Render "post" }}
-{{ end }}
-
+</article>
 {{ end }}
