@@ -1,0 +1,17 @@
+{{ $sections := slice }}
+
+{{ range .Site.RegularPages }}
+  {{ with .Section }}
+    {{ if not (in $sections .) }}
+      {{ $sections = union $sections (slice .) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ range $sections }}
+  {{ $section := . }}
+  {{ $sectionParts := split $section "/" }}
+  <div style="padding-left: {{ sub (mul (len $sectionParts) 20) 20 }}px">
+    {{ index $sectionParts (sub (len $sectionParts) 1) }}
+  </div>
+{{ end }}
