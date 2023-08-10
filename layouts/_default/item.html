@@ -1,16 +1,14 @@
-			<div class="menu-column">
-				<a href="{{ .Permalink}}">
-				  <div class="menu-item">
-					<h6 class="name">{{ .Title }}&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-					<span class="separator"></span>
-					{{ range .Params.Price }}
-					<strong>
-					<div rel="price tag">&nbsp;&nbsp;&nbsp;&nbsp;{{ . }} </div>
-					</strong>
-					{{ end }}
-				  </div>
-				  <div class="menu-item">
-				  <p class="menu-item-desciption">{{.Description}}</p>
-				  </div>
-				</a>
-		  </div>
+<div class="menu-column">
+	<a href="{{ .Permalink}}">
+		<div class="menu-item">
+			<h6 class="name">{{ .Title }}&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+			<span class="separator"></span>
+				{{ range .Params.Price }}
+					<strong><div rel="price tag">&nbsp;&nbsp;&nbsp;&nbsp;{{ . }} </div></strong>
+				{{ end }}
+		</div>
+		<div class="menu-item">
+			<p class="menu-item-desciption">{{.Description}}</p>
+		</div>
+	</a>
+</div>

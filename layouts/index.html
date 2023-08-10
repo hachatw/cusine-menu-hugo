@@ -28,96 +28,32 @@
       </div>
       {{ end }}
 
-      <div class="wp-block-columns columns alignwide">
-        {{ range .Site.Taxonomies.categories.台菜}}
-        <div class="menu-column">
-              <a href="{{ .Permalink}}">
-                <div class="menu-item">
-                  <h6 class="name">{{ .Title }}&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-                  <span class="separator"></span>
-                  {{ range .Params.Price }}
-                  <strong>
-                  <div rel="price tag">&nbsp;&nbsp;&nbsp;&nbsp;{{ . }} </div>
-                  </strong>
-                  {{ end }}
-                </div>
-                <div class="menu-item">
-                <p class="menu-item-desciption">{{.Description}}</p>
-                </div>
-              </a>
-        </div>
-        {{ end }}
-      </div>
-
-      {{ with .Site.Params.cuisine.coffee}}
-      <div class="wp-block-group alignwide">
-        <div class="wp-block-group__inner-container">
-          <h2 class="has-text-align-center">{{ . | markdownify }}</h2>
-        </div>
-      </div>
-      {{ end }}
-      
-      <div class="wp-block-columns columns alignwide">
-        {{ range .Site.Taxonomies.categories.咖啡}}
-        <div class="menu-column">
-          <div class="wp-block-group">
-            <div class="wp-block-group__inner-container">
-              <a href="{{.Permalink}}">
-                <div class="menu-item">
-                  <h4 class="name">{{ .Title }}</h4>
-                  <span class="separator"></span>
-                  <span class="price">NT 120</span>
-                </div>
-                <p>{{.Description}}</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
-
-      {{ with .Site.Params.cuisine.pasta}}
-      <div class="wp-block-group alignwide">
-        <div class="wp-block-group__inner-container">
-          <h2 class="has-text-align-center">{{ . | markdownify }}</h2>
-        </div>
-      </div>
-      {{ end }}
-      
-      <div class="wp-block-columns columns alignwide">
-        {{ range .Site.Taxonomies.categories.義大利麵}}
-        <div class="menu-column">
-          <div class="wp-block-group">
-            <div class="wp-block-group__inner-container">
-              <a href="{{.Permalink}}">
-                <div class="menu-item">
-                  <h4 class="name">{{ .Title }}</h4>
-                  <span class="separator"></span>
-                  <span class="price">NT 120q</span>
-                </div>
-                <p>{{.Description}}</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
-
-      {{ if .Site.Params.gallery.enable }}
-      {{ with .Site.Params.gallery }}
-      <figure class="wp-block-gallery alignwide columns-2 is-cropped">
-        <ul class="blocks-gallery-grid">
-          {{ range .gallery_item }}
-          <li class="blocks-gallery-item">
-            <figure><img src="{{ .image | absURL }}"/></figure>
-          </li>
-          {{ end }}
+     {{ $desiredTitles := slice "台菜s" "套餐s" "甜點s" "茶類s" "咖啡s" "義大利麵s" "啤酒-調酒s" "焗烤燉飯s"}}
+        <ul>
+          {{ range $sectionName, $section := .Site.Sections }}
+          {{ if in $desiredTitles $section.Title }} 
+          <li><a href="{{ $section.RelPermalink }}">{{ $sectionName }} {{.Title}} {{$section}}</a></li>
+          {{end}}
+          {{end}}
         </ul>
-      </figure>
-      {{ end }}
-      {{ end }}
+          {{ range $sectionName, $section := .Site.Sections }}
+          {{ if in $desiredTitles $section.Title }}
+          <div class="wp-block-group alignwide">
+            <div class="wp-block-group__inner-container">
+              <a href="{{ .Permalink}}">
+                <h2 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
+              </a>
+            </div>
+          </div>      
+          <div class="wp-block-columns columns alignwide">
+            {{ range .Data.Pages }}
+              {{ .Render "item" }}
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ end }}
+
     </div><!-- .entry-content -->
   </div><!-- .post-inner -->
 </article>
-
 {{ end }}

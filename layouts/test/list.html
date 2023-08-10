@@ -1,17 +1,59 @@
-{{ $sections := slice }}
+{{ define "main" }}
 
-{{ range .Site.RegularPages }}
-  {{ with .Section }}
-    {{ if not (in $sections .) }}
-      {{ $sections = union $sections (slice .) }}
-    {{ end }}
+<article class="post-20 page type-page status-publish has-post-thumbnail hentry" id="post-20">
+  {{ with .Site.Params.banner.heading }}
+  <header class="entry-header has-text-align-center header-footer-group">
+    <div class="entry-header-inner section-inner medium">
+      <h1 class="entry-title">{{ . | markdownify }}</h1>
+    </div>
+  </header>
   {{ end }}
-{{ end }}
+  <div class="post-inner thin">
+    <div class="entry-content">
 
-{{ range $sections }}
-  {{ $section := . }}
-  {{ $sectionParts := split $section "/" }}
-  <div style="padding-left: {{ sub (mul (len $sectionParts) 20) 20 }}px">
-    {{ index $sectionParts (sub (len $sectionParts) 1) }}
-  </div>
+      <div>
+        {{ "<!--Hello friend looking for source code? just check here: https://github.com/hachatw/-->" | safeHTML }}
+      </div>
+
+      <div class="has-social-menu">
+        <nav aria-label="Social links" class="footer-social-wrapper">
+          {{partial "social.html" .}}
+        </nav>
+      </div><!-- insert social menu of footer-top -->
+      {{ with .Site.Params.cuisine.food }}
+      <div class="wp-block-group alignwide">
+        <div class="wp-block-group__inner-container">
+          <h2 class="has-text-align-center">{{ . | markdownify }}</h2>
+        </div>
+      </div>
+      {{ end }}
+
+     {{ $desiredTitles := slice "台菜s" "套餐s" "甜點s" "茶類s" "咖啡s" "義大利麵s" "啤酒-調酒s" "焗烤燉飯s"}}
+        <ul>
+          {{ range $sectionName, $section := .Site.Sections }}
+          {{ if in $desiredTitles $section.Title }} 
+          <li><a href="{{ $section.RelPermalink }}">{{ $sectionName }} {{.Title}} {{$section}}</a></li>
+          {{end}}
+          {{end}}
+        </ul>
+          {{ range $sectionName, $section := .Site.Sections }}
+          {{ if in $desiredTitles $section.Title }}
+          <div class="wp-block-group alignwide">
+            <div class="wp-block-group__inner-container">
+              <a href="{{ .Permalink}}">
+                <h2 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
+              </a>
+            </div>
+          </div>      
+          <div class="wp-block-columns columns alignwide">
+            {{ range .Data.Pages }}
+              {{ .Render "item" }}
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ end }}
+
+    </div><!-- .entry-content -->
+  </div><!-- .post-inner -->
+</article>
 {{ end }}
