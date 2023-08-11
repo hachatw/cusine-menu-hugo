@@ -28,6 +28,44 @@
       </div>
       {{ end }}
 
+      <ul>
+        {{ range where .Site.RegularPages "Section" "items" }}
+        {{ if eq .Type "section" }}
+
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+
+      <h4>items selected</h4>
+      {{ range where .Site.Sections "Type" "items" }}
+      {{ range .Sections }}
+              <a href="{{ .Permalink}}">
+                  {{ .Title | markdownify }}
+              </a>
+      {{ end }}
+    {{ end }}
+
+        {{ range where .Site.Sections "Type" "items" }}
+          {{ range .Sections }}
+              <div class="wp-block-group alignwide">
+                <div class="wp-block-group__inner-container">
+                  <a href="{{ .Permalink}}">
+                    <h2 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
+                  </a>
+                  <div class="wp-block-columns columns alignwide">
+                  {{ range .Pages }}
+                      {{ .Render "item" }}
+                  {{ end }}
+                  </div>
+                </div>
+              </div>
+          {{ end }}
+        {{ end }}
+      
+      
      {{ $desiredTitles := slice "台菜s" "套餐s" "甜點s" "茶類s" "咖啡s" "義大利麵s" "啤酒-調酒s" "焗烤燉飯s" "冰品s"}}
         <ul>
           {{ range $sectionName, $section := .Site.Sections }}
@@ -37,6 +75,7 @@
           <li><a href="{{ $section.RelPermalink }}">{{ $sectionName }} {{.Title}} {{$section}}</a></li>
           {{end}}
         </ul>
+        
           {{ range $sectionName, $section := .Site.Sections }}
           {{ if in $desiredTitles $section.Title }}
           <div class="wp-block-group alignwide">

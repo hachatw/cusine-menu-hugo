@@ -33,34 +33,23 @@
         </ul>
       </figure>
     
-     {{ $desiredTitles := slice "台菜s" "套餐s" "甜點s" "茶類s" "咖啡s" "義大利麵s" "啤酒-調酒s" "焗烤燉飯s" "冰品s"}}
-    
-          <div class="wp-block-columns columns alignwide">
-            {{ range $sectionName, $section := .Site.Sections }}
-            {{ if in $desiredTitles $section.Title }}
-            <lu class="menu-column">
-                  <h4><a href="{{.Permalink}}">{{ .Title }}</a></h4>
-            </lu>
-            {{ end }}
-            {{ end }}
-          </div>
 
-          {{ range $sectionName, $section := .Site.Sections }}
-          {{ if in $desiredTitles $section.Title }}
+      {{ range where .Site.Sections "Type" "items" }}
+      {{ range .Sections }}
           <div class="wp-block-group alignwide">
             <div class="wp-block-group__inner-container">
               <a href="{{ .Permalink}}">
                 <h2 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
               </a>
+              <div class="wp-block-columns columns alignwide">
+              {{ range .Pages }}
+                  {{ .Render "item" }}
+              {{ end }}
+              </div>
             </div>
-          </div>      
-          <div class="wp-block-columns columns alignwide">
-            {{ range .Data.Pages }}
-              {{ .Render "item" }}
-            {{ end }}
           </div>
-          {{ end }}
-          {{ end }}
+      {{ end }}
+    {{ end }}
 
     </div><!-- .entry-content -->
   </div><!-- .post-inner -->
