@@ -7,7 +7,9 @@ body {
 */
 
 .menu-item-desciption{
-	color:#446336; font-size:85%;
+	color:#446336; font-size:82.5%;
+	padding-left: 4px;
+
 }
 
 .menu-column {
@@ -15,7 +17,7 @@ body {
 	padding-right: 4px;
 	padding-left: 15px;
 	padding-top: 15px;
-	margin: -5px;
+	margin: -14px;
 
 }
 
@@ -28,7 +30,7 @@ body {
 		padding-right: 50px;
 		padding-left: 15px;
 		padding-top: 0px;
-		margin: -5px;
+		margin: -14px;
 	}
 }
 
@@ -38,7 +40,8 @@ body {
 		flex: 0 0 50%;
 		max-width: 50%;
 		padding-right: 30px;
-		padding-left: 15px;
+		padding-left: 30px;
+		margin: -22px;
 	}
 }
   
