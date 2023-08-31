@@ -54,7 +54,6 @@
                {{ end }} 
             {{ end }}
             </div>
-              {{ .Content  }}
             {{ range .Sections }}
             {{ if eq "s" .Params.frame }}
             <div class="menu-description-box alignwide">
@@ -63,7 +62,6 @@
                 <h5 class="has-text-align-left">  {{ .Title | markdownify }}</h2>
               </a>
 
-              {{ .Content  }}
               <div class="wp-block-columns columns alignwide">
               {{ range .Pages }}
                 {{ .Render "item" }}
