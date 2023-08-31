@@ -39,30 +39,38 @@
         <div class="wp-block-group alignwide">
           <div class="wp-block-group__inner-container">
             <a href="{{ .Permalink}}">
-              <h2 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
+              <h2 class="has-text-align-left">  {{ .Title | markdownify }}</h2>
             </a>
             <div class="wp-block-columns columns alignwide">
             {{ range .Pages }}
+
+              {{ if .IsSection }}
+              <a href="{{ .Permalink}}">
+                <li class="has-text-align-left">  {{ .Title | markdownify }}</li>
+              </a>
+              {{ else }}
                 {{ .Render "item" }}
+               {{ end }} 
             {{ end }}
             </div>
-            <div class="menu-description-box">
               {{ .Content  }}
-            </div>
             {{ range .Sections }}
-
-
             {{ if eq "s" .Params.frame }}
-            <div class="menu-description-box">
+            <div class="menu-description-box alignwide">
             {{ end }}
               <a href="{{ .Permalink}}">
-                <h5 class="has-text-align-center">  {{ .Title | markdownify }}</h2>
+                <h5 class="has-text-align-left">  {{ .Title | markdownify }}</h2>
               </a>
+
+              {{ .Content  }}
               <div class="wp-block-columns columns alignwide">
               {{ range .Pages }}
                 {{ .Render "item" }}
               {{ end }}
               </div>
+              {{ if eq "s" .Params.frame }}
+              </div>
+              {{ end }}
             {{ end }}
           </div>
         </div>

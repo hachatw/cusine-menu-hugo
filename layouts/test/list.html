@@ -28,20 +28,20 @@
       </div>
       {{ end }}
 
-      <ul>
-        {{ range where .Site.RegularPages "Section" "items" }}
-        {{ if eq .Type "section" }}
-
-          <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </li>
-        {{ end }}
-        {{ end }}
-      </ul>
-
       <h4>items selected</h4>
       {{ range where .Site.Sections "Type" "items" }}
       {{ range .Sections }}
+
+      <h2>Section Name: {{ . }}</h2>
+      <h3>Section Title: {{ .Title }}</h3>
+      <p>Section Permalink: <a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+    
+      <h4>Sections in this Section:</h4>
+      <ul>
+        {{ range .Sections }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
               <a href="{{ .Permalink}}">
                   {{ .Title | markdownify }}
               </a>
