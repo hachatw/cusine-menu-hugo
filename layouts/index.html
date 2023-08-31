@@ -43,7 +43,7 @@
             <a href="{{ .Permalink}}">
               <h4 class="has-text-align-left category_title">  {{ .Title | markdownify }}</h4>
             </a>
-            <div class="wp-block-columns columns alignwide">
+            <div class="wp-block-columns columns ">
             {{ range .Pages }}
               {{ if .IsSection }}
               <a href="{{ .Permalink}}">
