@@ -20,6 +20,13 @@ body {
 
 }
 
+.frame_title{
+	padding-left: 30px;	
+	padding-top: 30px;	
+	color:#4c3b1c;
+	margin: -25px;
+}
+
 .menu-column {
 	width: 100%;
 	padding-right: 4px;
