@@ -64,7 +64,7 @@ body {
 	}
 }
 
-@media (min-width: 450px) and (max-width: 899px)  {
+@media (min-width: 650px) and (max-width: 899px)  {
 	.menu-column {
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
