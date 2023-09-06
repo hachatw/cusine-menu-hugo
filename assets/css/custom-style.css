@@ -47,6 +47,10 @@ body {
 
 }
 
+.list-item-row {
+	font-size: 80%;
+	color:#4c3b1c;
+}
 @media (min-width: 899px) {
 	.menu-column {
 		-ms-flex: 0 0 50%;

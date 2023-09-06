@@ -51,20 +51,24 @@
       {{ end }}
       {{ end }}
 
+<div class="wp-block-columns columns alignwide">
+  {{  range ( where .Site.Sections "Type" "items" ) }}
+  {{ range .Sections }}
 
+  <br>
+  {{ if .IsSection }}
+  {{ $currentSection := . }}
+  {{ with $currentSection }}
+  {{ range .Sections }}
+      <a href="{{ .Permalink}}">
+          <li class="has-text-align-left list-item-row">  {{ .Title | markdownify }}</li>
+      </a>		
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
 
-      <div class="wp-block-columns columns alignwide ">
-        <ul>
-        {{  range ( where .Site.Sections "Type" "items" ) }}
-        {{ range .Sections }}
-        <li class="blocks-gallery-item">
-          <a class="image-link"
-            href="{{ .Permalink }}"><p> {{ .Title | markdownify }}</p></a>
-        </li>
-        {{ end }}
-        {{ end }}
-        </ul>
-      </div>
     </div><!-- .entry-content -->
   </div><!-- .post-inner -->
 </article>

@@ -16,9 +16,12 @@
 		</div>
 		<div class="wp-block-columns columns alignwide">
 			{{ range .Pages }}
+			{{ if .IsSection }}
 			<a href="{{ .Permalink}}">
 			  <li class="has-text-align-left">  {{ .Title | markdownify }}</li>
 			</a>
+			{{ else }}
+			{{ end }} 
 		  {{ end }}
 <!--
 			<a href="{{  .Parent.Permalink}}" >
