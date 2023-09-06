@@ -11,21 +11,21 @@
 				<h1 class="archive-title"><a href="{{.Permalink}}"><span>{{ .Title }}</span></a></h1>
 			</div>
 		</header>
-		{{.Render "frame"}}
 		<div class="wp-block-columns columns alignwide">
-		{{ if .Parent }}
+		{{.Render "frame"}}
+		</div>
+		<div class="wp-block-columns columns alignwide">
 			{{ range .Pages }}
-			{{ if .IsSection }}
 			<a href="{{ .Permalink}}">
 			  <li class="has-text-align-left">  {{ .Title | markdownify }}</li>
 			</a>
-			{{ end }} 
 		  {{ end }}
-
-		<a href="{{  .Parent.Permalink}}" >
+<!--
+			<a href="{{  .Parent.Permalink}}" >
 			<li class="has-text-align-left"> 回到上一頁 {{ .Parent.Title }}</li>
 		</a>
-		{{ end }}
+-->
+
 		</div>	
 	  </div>
 	</div>

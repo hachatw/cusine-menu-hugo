@@ -1,28 +1,23 @@
-<div class="wp-block-columns columns alignwide">
-    {{ range .Data.Pages }}
+    {{ range .Pages }}
         {{ if .IsSection }}
             {{ $currentSection := . }}
             <div class="wp-block-columns columns alignwide">
             {{ with $currentSection }}
                 {{ if eq "s" .Params.frame }}
-                <div class="menu-description-box alignwide">
+                    <div class="menu-description-box alignwide">
                 {{ end }}
                 <a href="{{ .Permalink}}">
-                    <h5 class="has-text-align-left frame_title">  {{ .Title | markdownify }}</h2>
+                    <h5 class="has-text-align-left frame_title">  {{ .Title | markdownify }}</h5>
                 </a>		
                 <div class="wp-block-columns columns alignwide">
-                        {{ range .Pages }}
-                            {{ .Render "item" }}
-                        {{ end }}
-                    </div>
-                {{ if eq "s" .Params.frame }}
+                    {{ .Render "frame" }}
                 </div>
+                {{ if eq "s" .Params.frame }}
+                    </div>
                 {{ end }}
             {{ end }}
             </div>	
         {{ else }}
             {{ .Render "item" }}
         {{ end }} 
-
     {{ end }}
-</div>

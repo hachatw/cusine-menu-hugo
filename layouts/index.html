@@ -36,6 +36,8 @@
       </figure>
     
 
+    
+
       {{ range where .Site.Sections "Type" "items" }}
       {{ range .Sections }}
         <div class="wp-block-group alignwide">
@@ -43,28 +45,26 @@
             <a href="{{ .Permalink}}">
               <h4 class="has-text-align-left category_title">  {{ .Title | markdownify }}</h4>
             </a>
-            {{ .Render "frame"}}
-            </div>
+          {{ .Render "frame"}} 
           </div>
         </div>
       {{ end }}
       {{ end }}
-      <figure class="wp-block-gallery alignwide columns-2 is-cropped">
 
-      <div class="menu-description-box alignwide has-text-align-left ">
 
-      <ul class="wp-block-columns columns alignwide ">
+
+      <div class="wp-block-columns columns alignwide ">
+        <ul>
         {{  range ( where .Site.Sections "Type" "items" ) }}
         {{ range .Sections }}
         <li class="blocks-gallery-item">
           <a class="image-link"
-            href="{{ .Permalink }}"><h5> {{ .Title | markdownify }}</h5></a>
+            href="{{ .Permalink }}"><p> {{ .Title | markdownify }}</p></a>
         </li>
         {{ end }}
         {{ end }}
-      </ul>
+        </ul>
       </div>
-      </figure>
     </div><!-- .entry-content -->
   </div><!-- .post-inner -->
 </article>
