@@ -1,14 +1,18 @@
 <div class="wp-block-columns columns alignwide">
 <h4>
+{{ if in .Params.categories "義大利麵" }}
+    {{.Params.categories  }}
     可搭配以下副餐加點
+ {{end}}
 </h4>
-    <ul>
         <div class="wp-block-columns columns alignwide">
         {{ range where .Site.Pages "Section" "extras" }}
-        {{ .Render "item" }}
+            {{ if in .Params.combo "義大利麵" }}
+
+                {{ .Render "item" }}
+
+            {{end}}
         {{ end }}
         </div>
-    </ul>
     
 </div>
- 
