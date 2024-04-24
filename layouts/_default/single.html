@@ -162,7 +162,6 @@
 
   </div><!-- .post-inner -->
 
-  {{ partial "extras.html" . }}
   <div class="section-inner {{if not .Params.Tags}}d-none{{end}}">
     <div class="post-meta-wrapper post-meta-single post-meta-single-bottom">
       <ul class="post-meta">
@@ -180,8 +179,10 @@
             {{end}} </span>
         </li>
       </ul><!-- .post-meta -->
+<br>
+  {{ partial "extras.html" . }}
 
-
+  {{ .Render "list-paragraph"}}
       {{ if .Site.DisqusShortname }}
       <hr class="styled-separator is-style-wide" aria-hidden="true">
       <!-- comments -->
@@ -191,7 +192,6 @@
       {{ end }}
     </div><!-- .post-meta-wrapper -->
   </div><!-- .section-inner -->
-  {{ .Render "list-paragraph"}}
 </article>
 
 {{ end }}
