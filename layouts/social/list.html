@@ -9,11 +9,26 @@
 	<div class="post-inner thin">
 		<div class="entry-content">
 			<h3>加 facebook</h3>
-			<figure class="wp-block-image alignfull size-full"><img src="{{ .Params.Image2 |absURL }}"
-				alt="{{.Title }}" class="wp-image-90" /></figure>
+
+			<figure class="wp-block-gallery alignwide columns-3 is-cropped">
+				<ul class="blocks-gallery-grid">
+				  <li class="blocks-gallery-item">
+					<figure class="wp-block-image alignfull size-full"><a class="image-link"
+					  href="{{ .Permalink }}"><img src="{{ .Params.Image |absURL }}"
+					  alt="{{.Title }}" class="wp-image-37" /></a></figure>
+				  </li>
+				</ul>
+			  </figure>
 			<h3>加 line</h3>
-			<figure class="wp-block-image alignfull size-full"><img src="{{ .Params.Image |absURL }}"
-				alt="{{.Title }}" class="wp-image-37" /></figure>
+			<figure class="wp-block-gallery alignwide columns-3 is-cropped">
+				<ul class="blocks-gallery-grid">
+				  <li class="blocks-gallery-item">
+					<figure class="wp-block-image alignfull size-full"><a class="image-link"
+					  href="{{ .Permalink }}"><img src="{{ .Params.Image2 |absURL }}"
+					  alt="{{.Title }}" class="wp-image-37" /></a></figure>
+				  </li>
+				</ul>
+
 		</div>
 	</div>
 </article>
