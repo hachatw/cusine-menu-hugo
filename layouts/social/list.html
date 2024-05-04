@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<article class="page type-page status-publish hentry">
+	<header class="entry-header has-text-align-center header-footer-group">
+		<div class="entry-header-inner section-inner medium">
+			<h1 class="entry-title">{{ .Title }}</h1>
+		</div>
+	</header>
+	<div class="post-inner thin">
+		<div class="entry-content">
+			<h3>加 facebook</h3>
+			<figure class="wp-block-image alignfull size-full"><img src="{{ .Params.Image2 |absURL }}"
+				alt="{{.Title }}" class="wp-image-90" /></figure>
+			<h3>加 line</h3>
+			<figure class="wp-block-image alignfull size-full"><img src="{{ .Params.Image |absURL }}"
+				alt="{{.Title }}" class="wp-image-37" /></figure>
+		</div>
+	</div>
+</article>
+
+{{ end }}
