@@ -5,13 +5,12 @@
         {{partial "social.html" .}}
       </nav>
     </div><!-- .footer-top -->
-    {{ with .Site.Params.footer }}
     <aside class="footer-widgets-outer-wrapper" role="complementary">
       <div class="footer-widgets-wrapper">
         <div class="footer-widgets column-one grid-item">
           <div class="widget widget_text">
             <div class="widget-content">
-              {{ with .Site.GetPage "about" }}
+              {{ with .Site.GetPage "coc" }}
                 <h2 class="widget-title subheading heading-size-3">{{ .Title | markdownify }}</h2>
                 <div class="textwidget">
                   <p>{{ .Content | markdownify }}</p>
@@ -20,6 +19,7 @@
             </div>
           </div>
         </div>
+    {{ with .Site.Params.footer }}
         <div class="footer-widgets column-two grid-item">
           <div class="widget widget_text">
             <div class="widget-content">
