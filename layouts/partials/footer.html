@@ -19,14 +19,15 @@
             </div>
           </div>
         </div>
-    {{ with .Site.Params.footer }}
         <div class="footer-widgets column-two grid-item">
           <div class="widget widget_text">
             <div class="widget-content">
               <h2 class="widget-title subheading heading-size-3">{{ .subheading | markdownify }}</h2>
               <div class="textwidget">
-                <p><strong>{{ .addressTitle | markdownify }}</strong><br/> {{ .address | markdownify }}</p>
-                <p><strong>{{ .hoursTitle | markdownify }}</strong><br/>{{ .hours | markdownify }}</p>
+                {{ with .Site.Params.footer }}
+                  <p><strong>{{ .addressTitle | markdownify }}</strong><br/> {{ .address | markdownify }}</p>
+                  <p><strong>{{ .hoursTitle | markdownify }}</strong><br/>{{ .hours | markdownify }}</p>
+                {{ end }}
                 {{ with .Site.GetPage "about/holiday" }}
                   <h2 class="widget-title subheading heading-size-3">{{ .Title | markdownify }}</h2>
                   <div class="textwidget">
@@ -39,7 +40,6 @@
         </div>
       </div><!-- .footer-widgets-wrapper -->
     </aside><!-- .footer-widgets-outer-wrapper -->
-    {{ end }}
 
   </div><!-- .footer-inner -->
 
