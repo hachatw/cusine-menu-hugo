@@ -14,8 +14,8 @@
                 <h2 class="widget-title subheading heading-size-3">{{ .Title | markdownify }}</h2>
                 <div class="textwidget">
                   <p>{{ .Content | markdownify }}</p>
+                </div>
               {{ end }}
-              </div>
             </div>
           </div>
         </div>
@@ -27,6 +27,12 @@
               <div class="textwidget">
                 <p><strong>{{ .addressTitle | markdownify }}</strong><br/> {{ .address | markdownify }}</p>
                 <p><strong>{{ .hoursTitle | markdownify }}</strong><br/>{{ .hours | markdownify }}</p>
+                {{ with .Site.GetPage "about/holiday" }}
+                  <h2 class="widget-title subheading heading-size-3">{{ .Title | markdownify }}</h2>
+                  <div class="textwidget">
+                    <p>{{ .Content | markdownify }}</p>
+                  </div>
+                {{ end }}
               </div>
             </div>
           </div>
